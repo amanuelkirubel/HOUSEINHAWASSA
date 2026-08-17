@@ -1,4 +1,4 @@
-# Houseinhawassa — የቤት ገበያ (Real version)
+# Yebet — የቤት ገበያ (Real version)
 
 እውነተኛ የመረጃ ቋት (database)፣ ደህንነቱ የተጠበቀ password (bcrypt)፣ እና login (JWT) ያለው ትክክለኛ ድህረ ገጽ።
 This is a real Node.js + Express + PostgreSQL app — not a demo. You need to deploy it yourself using the steps below.
