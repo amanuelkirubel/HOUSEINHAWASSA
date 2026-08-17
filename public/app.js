@@ -1,8 +1,11 @@
 (function(){
   const API = '';
   // Single point of contact for all buyer inquiries. Update this number if it's wrong.
-  const OWNER_PHONE = '251715937393';         // used for the WhatsApp link (no + or leading 0)
-  const OWNER_PHONE_DISPLAY = '+251 71 593 7393';
+  const OWNER_PHONE = '251715737393';          // used for the WhatsApp link (no + or leading 0) — primary
+  const OWNER_PHONE_DISPLAY = '+251 71 573 7393';
+  const OWNER_PHONE_2_DISPLAY = '+251 93 980 4748';   // secondary / backup call number
+  const OWNER_EMAILS = ['houseinhawasssa@gmail.com', 'houseinethiopia7@gmail.com'];
+  const OWNER_TIKTOK = '@houseinhawassa';
   let state = {
     view:'home', currentUser:null, listings:[], cities:[],
     selectedId:null,
@@ -184,7 +187,12 @@
                 href="https://wa.me/${OWNER_PHONE}?text=${encodeURIComponent('Hi, I\'m interested in: '+l.title+' ('+fmtPrice(l.price)+')')}">
               Contact us about this house
             </a>
-            <div class="contact-note">All inquiries go through us — call or WhatsApp<br><b class="mono" style="color:var(--ink);">${OWNER_PHONE_DISPLAY}</b></div>`}
+            <div class="contact-note">All inquiries go through us — call or WhatsApp<br>
+              <b class="mono" style="color:var(--ink);">${OWNER_PHONE_DISPLAY}</b><br>
+              <span class="mono">${OWNER_PHONE_2_DISPLAY}</span><br>
+              ${OWNER_EMAILS.map(e=>`<span class="mono">${e}</span>`).join('<br>')}<br>
+              TikTok <span class="mono">${OWNER_TIKTOK}</span>
+            </div>`}
         </div>
       </div></div>`;
   }
@@ -253,7 +261,12 @@
   }
 
   function renderFooter(){
-    return `<div class="footer">${tibeb()}<div class="wrap" style="margin-top:16px;">House in Hawassa — real accounts, real database. Built for Ethiopia.</div></div>`;
+    return `<div class="footer">${tibeb()}<div class="wrap" style="margin-top:16px;">
+      <div>House in Hawassa — real accounts, real database. Built for Ethiopia.</div>
+      <div class="mono" style="margin-top:10px;font-size:12px;color:var(--muted);">
+        ${OWNER_PHONE_DISPLAY} · ${OWNER_PHONE_2_DISPLAY} · ${OWNER_EMAILS.join(' · ')} · TikTok ${OWNER_TIKTOK}
+      </div>
+    </div></div>`;
   }
 
   async function render(){
